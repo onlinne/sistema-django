@@ -1,1 +1,1 @@
-from .general import UserApi
+from .register import UserApi
