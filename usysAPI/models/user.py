@@ -2,13 +2,14 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
+    username = None
     #campos del modelo
-    username = models.IntegerField("codigo estudiante", unique = True)
+    identification = models.CharField("codigo estudiante", unique = True,max_length = 12)
     first_name = models.CharField("nombre(s) estudiante",max_length = 30)
     last_name = models.CharField("apellido(s) estudiante",max_length = 30)
     
     #USERNAME_FIELD indica que campo se va a usar para el login
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = 'identification'
     
     #campos que se requieren para el login
     REQUIRED_FIELDS = ['first_name','last_name']
